@@ -22,7 +22,7 @@ namespace SimpleCalculator
             Console.WriteLine(linePrompt); // this does not 
 
             Expression exp = new Expression();
-            Console.WriteLine(exp.ExpressionMaker(input));
+            Console.WriteLine(exp.ExpressionHandler(input));
 
 
             Console.ReadKey();

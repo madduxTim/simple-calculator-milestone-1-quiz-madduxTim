@@ -5,19 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
-using SimpleCalculator;
 
 namespace SimpleCalculator
 {
     public class Expression
     {
-        public string ExpressionMaker(string user_input)
+        public string ExpressionHandler(string user_input)
         {
             if (user_input.Contains("+"))
             {
+                int where = user_input.IndexOf("+", 0, user_input.Length);
                 Addition add = new Addition();
                 return add.Add(user_input);
-            } else
+                
+                //return where.ToString();
+            } else 
             {
                 return user_input + "nope";
             }

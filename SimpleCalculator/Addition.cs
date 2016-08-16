@@ -10,7 +10,10 @@ namespace SimpleCalculator
     {
         public string Add(string user_input)
         {
-            string output = user_input +"... plus here's some addition for ya.";
+            int operandIndex = user_input.IndexOf("+");
+            string preOperand = user_input.Substring(0, operandIndex);
+            Console.WriteLine(preOperand);
+            string output = user_input + "+";
             return output; 
         }
     }
