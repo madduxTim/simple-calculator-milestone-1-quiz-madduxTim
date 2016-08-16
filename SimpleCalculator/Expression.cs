@@ -14,14 +14,33 @@ namespace SimpleCalculator
         {
             if (user_input.Contains("+"))
             {
-                int where = user_input.IndexOf("+", 0, user_input.Length);
+                //int where = user_input.IndexOf("+", 0, user_input.Length);
                 Addition add = new Addition();
                 return add.Add(user_input);
-                
-                //return where.ToString();
-            } else 
+            }
+            else if (user_input.Contains("-"))
             {
-                return user_input + "nope";
+                Subtraction subtract = new Subtraction();
+                return subtract.Subtract(user_input);        
+            }
+            else if (user_input.Contains("*"))
+            {
+                Multiplication multiply = new Multiplication();
+                return multiply.Multiply(user_input);
+            }
+            else if (user_input.Contains("%"))
+            {
+                Modulus modulify = new Modulus();
+                return modulify.Modulify(user_input);
+            }
+            else if (user_input.Contains("/"))
+            {
+                Division divide = new Division();
+                return divide.Divide(user_input);
+            }
+            else
+            {
+                return "Try again";
             }
         }
     }
