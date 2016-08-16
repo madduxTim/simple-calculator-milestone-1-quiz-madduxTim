@@ -12,9 +12,14 @@ namespace SimpleCalculator
         {
             int operandIndex = user_input.IndexOf("+");
             string preOperand = user_input.Substring(0, operandIndex);
-            Console.WriteLine(preOperand);
-            string output = user_input + "+";
-            return output; 
+            string postOperand = user_input.Substring(operandIndex + 1);
+            int firstDigit = int.Parse(preOperand);
+            int secondDigit = int.Parse(postOperand);
+            int output = firstDigit + secondDigit;
+            //Console.WriteLine(firstDigit + "<-- This is 1st digit.");
+            //Console.WriteLine(secondDigit + "<-- This is 2nd digit");
+            //string output = user_input + "uses the Addition method";
+            return output.ToString();
         }
     }
 }
