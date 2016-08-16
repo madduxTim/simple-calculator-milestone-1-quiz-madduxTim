@@ -10,6 +10,15 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Sup slick? Go ahead and get your math on.");
+               
+            string linePrompt = "[0]>";
+            Console.Write(linePrompt);
+            string input = Console.ReadLine().ToLower();
+            Console.WriteLine("Thanks, I'll try to... {0}", input);
+
+
+            Console.ReadKey();
         }
     }
 }
