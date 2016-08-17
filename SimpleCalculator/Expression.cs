@@ -12,11 +12,10 @@ namespace SimpleCalculator
     {
         public string ExpressionHandler(string user_input)
         {
-            //if (user_input == "exit" | user_input == "quit")  // HOW DO I GET THIS IDEA TO WORK? 
+            //if (user_input == "last")
             //{
-            //    trigger = false;
+            //    return user_input;
             //}
-            //if (user_input == "last") { }
             //if (user_input == "lastq") { } 
             if (user_input.Contains("+") && user_input.Length > 2 && user_input.Length < 10)
             {

@@ -17,7 +17,7 @@ namespace SimpleCalculator
             int counter = 0;
             while (trigger == true)
             {
-                string linePrompt = "[" + counter + "]>";
+                string linePrompt = "[" + counter + "]> ";
                 Console.Write(linePrompt);
                 string input = Console.ReadLine().ToLower();
                 counter += 1;
@@ -27,7 +27,7 @@ namespace SimpleCalculator
                 } else
                 {
                     Expression exp = new Expression();
-                    Console.WriteLine(exp.ExpressionHandler(input));
+                    Console.WriteLine("   = " + exp.ExpressionHandler(input));
                 }
                 //Console.WriteLine($"Thanks, I'll try to... {input}");
             }
