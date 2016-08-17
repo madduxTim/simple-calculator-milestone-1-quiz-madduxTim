@@ -12,9 +12,8 @@ namespace SimpleCalculator
     {
         public string ExpressionHandler(string user_input)
         {
-            if (user_input.Contains("+"))
+            if (user_input.Contains("+") && user_input.Length > 2 && user_input.Length < 10)
             {
-                //int where = user_input.IndexOf("+", 0, user_input.Length);
                 Addition add = new Addition();
                 return add.Add(user_input);
             }
