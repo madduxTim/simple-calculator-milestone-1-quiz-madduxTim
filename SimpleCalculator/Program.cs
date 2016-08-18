@@ -23,6 +23,7 @@ namespace SimpleCalculator
                 counter += 1;
                 if (input == "exit" | input == "quit")
                 {
+                    Console.WriteLine("Luego, hombre!");
                     trigger = false;
                 } else
                 {
