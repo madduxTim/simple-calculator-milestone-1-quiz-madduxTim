@@ -9,10 +9,11 @@ namespace SimpleCalculator
 {
     class Program
     {
-        public static bool trigger { get; internal set; }
-
         static void Main(string[] args)
         {
+            //Stack stack = new Stack();
+            string lastInput = "nothing yet hombre";
+            string lastOutput = "nothing to see here";
             bool trigger = true;
             int counter = 0;
             while (trigger == true)
@@ -20,17 +21,37 @@ namespace SimpleCalculator
                 string linePrompt = "[" + counter + "]> ";
                 Console.Write(linePrompt);
                 string input = Console.ReadLine().ToLower();
+                //stack.InputStack(input); // I need this to start creating a Stack with inputs from user. 
                 counter += 1;
                 if (input == "exit" | input == "quit")
                 {
                     Console.WriteLine("Luego, hombre!");
                     trigger = false;
-                } else
+                }
+                else if (input == "last")
                 {
+                    Console.WriteLine(lastInput);
+                }
+                else if (input == "lastq")
+                {
+                    Console.WriteLine(lastOutput);
+                }
+                else if (input.Count() <= 7)
+                {
+                    //Console.WriteLine(input.Count());
                     Expression exp = new Expression();
                     Console.WriteLine("   = " + exp.ExpressionHandler(input));
-                }
-                //Console.WriteLine($"Thanks, I'll try to... {input}");
+                    lastInput = input;
+                    lastOutput = exp.ExpressionHandler(input);
+                    //stack.OutputStack(exp.ExpressionHandler(input)); // I need this or something like it to start logging outputs.
+                }           
+                //else if (input == "last")
+                //{
+                //    foreach (var outputEntry in bacon)
+                //    {
+                //        Console.WriteLine(outputEntry);
+                //    }
+                //}
             }
         }
     }

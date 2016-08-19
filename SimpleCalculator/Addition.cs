@@ -16,8 +16,8 @@ namespace SimpleCalculator
             int firstDigit = int.Parse(preOperand);
             int secondDigit = int.Parse(postOperand);
             int output = firstDigit + secondDigit;
-            Console.WriteLine("input = " + user_input);
-            Console.WriteLine("output = " + output.ToString());
+            //Console.WriteLine("input = " + user_input);
+            //Console.WriteLine("output = " + output.ToString());
             return output.ToString();
         }
     }

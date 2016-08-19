@@ -12,12 +12,7 @@ namespace SimpleCalculator
     {
         public string ExpressionHandler(string user_input)
         {
-            //if (user_input == "last")
-            //{
-            //    return user_input;
-            //}
-            //if (user_input == "lastq") { } 
-            if (user_input.Contains("+") && user_input.Length > 2 && user_input.Length < 10)
+            if (user_input.Contains("+"))
             {
                 Addition add = new Addition();
                 return add.Add(user_input);
@@ -44,7 +39,7 @@ namespace SimpleCalculator
             }
             else
             {
-                return "Try again";
+                return "The numbers you entered were too large or you entered the equation wrong. Try again";
             }
         }
     }
