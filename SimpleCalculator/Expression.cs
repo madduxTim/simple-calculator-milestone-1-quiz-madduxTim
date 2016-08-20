@@ -12,7 +12,16 @@ namespace SimpleCalculator
     {
         public string ExpressionHandler(string user_input)
         {
-            if (user_input.Contains("+"))
+            if (user_input == "last")
+            {
+                StackBuilder blah = new StackBuilder();
+                return blah.LastEntry;
+            }
+            else if (user_input == "lastq")
+            {
+                return user_input;
+            }
+            else if (user_input.Contains("+"))
             {
                 Addition add = new Addition();
                 return add.Add(user_input);
