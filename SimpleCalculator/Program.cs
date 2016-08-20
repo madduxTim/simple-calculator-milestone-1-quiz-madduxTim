@@ -11,8 +11,8 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            //string lastInput = "nothing yet hombre";
-            //string lastOutput = "nothing to see here";
+            string lastInput = "nothing yet hombre";
+            string lastOutput = "nothing to see here";
             bool trigger = true;
             int counter = 0;
             while (trigger == true)
@@ -26,12 +26,20 @@ namespace SimpleCalculator
                     Console.WriteLine("Luego, hombre!");
                     trigger = false;
                 }
+                else if (input == "last")
+                {
+                    Console.WriteLine(lastOutput);
+                }
+                else if (input == "lastq")
+                {
+                    Console.WriteLine(lastInput);
+                }
                 else
                 {
-                    Expression exp = new Expression();
+                    Expression exp = new Expression(); 
                     Console.WriteLine("   = " + exp.ExpressionHandler(input));
-                    //lastInput = input;
-                    //lastOutput = exp.ExpressionHandler(input);
+                    lastInput = input;
+                    lastOutput = exp.ExpressionHandler(input);
                 }
             }
         }

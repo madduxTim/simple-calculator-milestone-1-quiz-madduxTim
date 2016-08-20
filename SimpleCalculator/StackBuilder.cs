@@ -10,26 +10,38 @@ namespace SimpleCalculator
 {
     public class StackBuilder
     {
-        public string LastEntry { get; set; }
+
         public void InputStack(string user_input)
         {
-            Stack<string> stack = new Stack<string>();
-            stack.Push(user_input);
-            for (int i = 0; i < stack.Count(); i++)
-            {
-                LastEntry = stack.ElementAt(i - 1);
-            }
-            //GetEnumerator() method?
-    }
-        public string LastOutput { get; set; }
+
+        }
+
         public void OutputStack(string output)
         {
-            Stack<string> stack = new Stack<string>();
-            stack.Push(output);
-            for (int i = 0; i < stack.Count(); i++)
-            {
-                LastOutput = stack.ElementAt(i - 1); 
-            }
+            
         }
     }
 }
+
+// couldn't get any of it to work. 
+//stack.Push("placeholder");
+//            stack.Push(user_input);
+//            //foreach (var entry in stack)
+//            //{
+//            //    Console.WriteLine($"line 20 {entry}");
+//            //}
+//            Console.WriteLine($"stack elementat{stack.ElementAt(0)}");
+//            Console.WriteLine($"stack stack.elemenat(stack.count) = {stack.ElementAt(stack.Count-1)}");
+//            Console.WriteLine($"stack Peek {stack.Peek()}");
+//            Console.WriteLine($"stack count = {stack.Count}");
+            
+//            if (user_input == "last")
+//            {
+//                StackBuilder last = new StackBuilder(); // THIS NO WORKY
+//                return last.LastEntry;
+//            }
+//            else if (user_input == "lastq")
+//            {
+//                StackBuilder lastq = new StackBuilder(); // THIS NEITHER. 
+//                return lastq.LastOutput;
+//            }
