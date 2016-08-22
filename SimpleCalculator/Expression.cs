@@ -10,11 +10,13 @@ namespace SimpleCalculator
 {
     public class Expression
     {
+        //StackBuilder stack = new StackBuilder(); 
         public string ExpressionHandler(string user_input)
         {
             if (user_input.Contains("+"))
             {
                 Addition add = new Addition();
+                //stack.SetLastOutput(add.Add(user_input)); // ASK WHY AS TO WHY THIS DIDN'T WORK, BUT DID THROW ERROR EITHER
                 return add.Add(user_input);
             }
             else if (user_input.Contains("-"))

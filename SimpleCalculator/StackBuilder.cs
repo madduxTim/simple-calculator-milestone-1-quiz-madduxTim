@@ -10,16 +10,26 @@ namespace SimpleCalculator
 {
     public class StackBuilder
     {
-
-        public void InputStack(string user_input)
+        public string LastInput = "Nothing asked to be calculated yet.";
+        public string LastOutput = "Nothing output yet."; 
+        
+        public void SetLastInput(string user_input)
         {
-
+            LastInput = user_input;
         }
-
-        public void OutputStack(string output)
+        public void SetLastOutput(string last_output)
         {
+            LastOutput = last_output;
+        }
+        //public void InputStack(string user_input)
+        //{
+
+        //}
+
+        //public void OutputStack(string output)
+        //{
             
-        }
+        //}
     }
 }
 

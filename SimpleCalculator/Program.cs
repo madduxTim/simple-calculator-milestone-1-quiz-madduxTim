@@ -11,8 +11,10 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            string lastInput = "nothing yet hombre";
-            string lastOutput = "nothing to see here";
+            //string lastInput = "nothing yet hombre";
+            //string lastOutput = "nothing to see here";
+            StackBuilder stack = new StackBuilder();
+            Expression exp = new Expression();
             bool trigger = true;
             int counter = 0;
             while (trigger == true)
@@ -28,18 +30,24 @@ namespace SimpleCalculator
                 }
                 else if (input == "last")
                 {
-                    Console.WriteLine(lastOutput);
+                    Console.WriteLine(stack.LastInput);
+                    stack.SetLastInput(input);
                 }
                 else if (input == "lastq")
                 {
-                    Console.WriteLine(lastInput);
+                    //Console.WriteLine(stack.SetLastOutput(exp.ExpressionHandler(input))); 
+                    //stack.SetLastOutput(exp.ExpressionHandler(input));
+                    Console.WriteLine(stack.LastOutput);
+                    stack.SetLastInput(input);
+
                 }
                 else
                 {
-                    Expression exp = new Expression(); 
                     Console.WriteLine("   = " + exp.ExpressionHandler(input));
-                    lastInput = input;
-                    lastOutput = exp.ExpressionHandler(input);
+                    stack.SetLastOutput(exp.ExpressionHandler(input));
+                    stack.SetLastInput(input);
+                    //lastInput = input;
+                    //lastOutput = exp.ExpressionHandler(input);
                 }
             }
         }
