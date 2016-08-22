@@ -13,10 +13,18 @@ namespace SimpleCalculator
             int operandIndex = user_input.IndexOf("+");
             string preOperand = user_input.Substring(0, operandIndex);
             string postOperand = user_input.Substring(operandIndex + 1);
-            int firstDigit = int.Parse(preOperand);
-            int secondDigit = int.Parse(postOperand);
-            int output = firstDigit + secondDigit;
-            return output.ToString();
+            Console.WriteLine(postOperand);
+            if (operandIndex != 0 )
+            {
+                int firstDigit = int.Parse(preOperand);
+                int secondDigit = int.Parse(postOperand);
+                int output = firstDigit + secondDigit;
+                return output.ToString();
+            }
+            else
+            {
+                return "Check your last entry. You need two digits between a operand.";
+            }
         }
     }
 }

@@ -16,7 +16,14 @@ namespace SimpleCalculator
             int firstDigit = int.Parse(preOperand);
             int secondDigit = int.Parse(postOperand);
             int output = firstDigit % secondDigit;
-            return output.ToString();
+            if (firstDigit > 0 && secondDigit > 0)
+            {
+                return output.ToString();
+            }
+            else
+            {
+                return "Check your last entry. You need two digits between a operand.";
+            }
         }
     }
 }
