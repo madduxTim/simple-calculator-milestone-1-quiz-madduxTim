@@ -11,14 +11,14 @@ namespace SimpleCalculator
         public string Multiply(string user_input)
         {
             int operandIndex = user_input.IndexOf("*");
+            if (operandIndex != 0)
+            { 
             string preOperand = user_input.Substring(0, operandIndex);
             string postOperand = user_input.Substring(operandIndex + 1);
             int firstDigit = int.Parse(preOperand);
             int secondDigit = int.Parse(postOperand);
             int output = firstDigit * secondDigit;
-            if (firstDigit > 0 && secondDigit > 0)
-            {
-                return output.ToString();
+            return output.ToString();
             }
             else
             {
