@@ -11,7 +11,8 @@ namespace SimpleCalculator
         public string Modulify(string user_input)
         {
             int operandIndex = user_input.IndexOf("%");
-            if (operandIndex != 0)
+            bool checking = user_input.EndsWith("%");
+            if (operandIndex != 0 && checking == false)
             {
                 string preOperand = user_input.Substring(0, operandIndex);
                 string postOperand = user_input.Substring(operandIndex + 1);
