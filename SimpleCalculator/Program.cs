@@ -11,9 +11,8 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            //Stack stack = new Stack();
-            string lastInput = "nothing yet hombre";
-            string lastOutput = "nothing to see here";
+            StackBuilder stack = new StackBuilder();
+            Expression exp = new Expression();
             bool trigger = true;
             int counter = 0;
             while (trigger == true)
@@ -21,7 +20,6 @@ namespace SimpleCalculator
                 string linePrompt = "[" + counter + "]> ";
                 Console.Write(linePrompt);
                 string input = Console.ReadLine().ToLower();
-                //stack.InputStack(input); // I need this to start creating a Stack with inputs from user. 
                 counter += 1;
                 if (input == "exit" | input == "quit")
                 {
@@ -30,28 +28,20 @@ namespace SimpleCalculator
                 }
                 else if (input == "last")
                 {
-                    Console.WriteLine(lastInput);
+                    Console.WriteLine(stack.LastInput);
+                    stack.SetLastInput(input);
                 }
                 else if (input == "lastq")
                 {
-                    Console.WriteLine(lastOutput);
+                    Console.WriteLine(stack.LastOutput);
+                    stack.SetLastInput(input);
                 }
-                else if (input.Count() <= 7)
+                else
                 {
-                    //Console.WriteLine(input.Count());
-                    Expression exp = new Expression();
                     Console.WriteLine("   = " + exp.ExpressionHandler(input));
-                    lastInput = input;
-                    lastOutput = exp.ExpressionHandler(input);
-                    //stack.OutputStack(exp.ExpressionHandler(input)); // I need this or something like it to start logging outputs.
-                }           
-                //else if (input == "last")
-                //{
-                //    foreach (var outputEntry in bacon)
-                //    {
-                //        Console.WriteLine(outputEntry);
-                //    }
-                //}
+                    stack.SetLastOutput(exp.ExpressionHandler(input));
+                    stack.SetLastInput(input);
+                }
             }
         }
     }
