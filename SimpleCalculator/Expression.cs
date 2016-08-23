@@ -17,6 +17,7 @@ namespace SimpleCalculator
             {
                 Addition add = new Addition();
                 //stack.SetLastOutput(add.Add(user_input)); // ASK WHY AS TO WHY THIS DIDN'T WORK, BUT DID THROW ERROR EITHER
+                //Console.WriteLine("This is the expression handler " + add.Add(user_input)); //this prints as expected however...
                 return add.Add(user_input);
             }
             else if (user_input.Contains("-"))
@@ -41,7 +42,7 @@ namespace SimpleCalculator
             }
             else
             {
-                return "The numbers you entered were too large or you entered the equation wrong. Try again";
+                return "You didn't enter an equation correctly. Try again";
             }
         }
     }
