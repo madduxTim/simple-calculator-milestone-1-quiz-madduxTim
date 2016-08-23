@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Division
+    public class Division
     {
         public string Divide(string user_input)
         {

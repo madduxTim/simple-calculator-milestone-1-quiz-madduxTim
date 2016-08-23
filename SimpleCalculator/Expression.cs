@@ -42,7 +42,7 @@ namespace SimpleCalculator
             }
             else
             {
-                return "The numbers you entered were too large or you entered the equation wrong. Try again";
+                return "You didn't enter an equation correctly. Try again";
             }
         }
     }

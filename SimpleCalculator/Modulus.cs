@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Modulus
+    public class Modulus
     {
         public string Modulify(string user_input)
         {

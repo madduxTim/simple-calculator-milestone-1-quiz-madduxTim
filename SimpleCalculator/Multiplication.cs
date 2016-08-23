@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Multiplication
+    public class Multiplication
     {
         public string Multiply(string user_input)
         {
