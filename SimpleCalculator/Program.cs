@@ -30,16 +30,16 @@ namespace SimpleCalculator
                     trigger = false;
                     
                 }
-                else if (input == "last")
-                {
-                    Console.WriteLine(stack.LastInput);
-                    stack.SetLastInput(input);
-                }
-                else if (input == "lastq")
-                {
-                    Console.WriteLine(stack.LastOutput);
-                    stack.SetLastInput(input);
-                }
+                //else if (input == "last")
+                //{
+                //    Console.WriteLine(stack.LastInput);
+                //    stack.SetLastInput(input);
+                //}
+                //else if (input == "lastq")
+                //{
+                //    Console.WriteLine(stack.LastOutput);
+                //    stack.SetLastInput(input);
+                //}
                 else
                 {
                     Console.WriteLine("   = " + exp.ExpressionHandler(input));

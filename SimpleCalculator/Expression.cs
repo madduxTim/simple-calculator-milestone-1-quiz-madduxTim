@@ -10,11 +10,7 @@ namespace SimpleCalculator
 {
     public class Expression
     {
-        Addition add = new Addition();
-        Subtraction subtract = new Subtraction();
-        Multiplication multiply = new Multiplication();
-        Modulus modulify = new Modulus();
-        Division divide = new Division();
+        StackBuilder stack = new StackBuilder();
         MessageRepo message = new MessageRepo();
         string myRegex = @"^(?<FirstDigit>-?\d+)\s*?(?<Operation>[\+\0\*\%])\s*?(?<SecondDigit>-?\d+)\s*?$";
 
@@ -23,11 +19,11 @@ namespace SimpleCalculator
             Regex regex = new Regex(myRegex);
             Math math = new Math();
             Match captures = regex.Match(user_input);
-            int firstDigit = Convert.ToInt32(captures.Groups["FirstDigit"].Value);
-            int secondDigit = Convert.ToInt32(captures.Groups["SecondDigit"].Value);
-            char operation = Convert.ToChar(captures.Groups["Operation"].Value);
             if (regex.IsMatch(user_input))
             {
+                int firstDigit = Convert.ToInt32(captures.Groups["FirstDigit"].Value);
+                int secondDigit = Convert.ToInt32(captures.Groups["SecondDigit"].Value);
+                char operation = Convert.ToChar(captures.Groups["Operation"].Value);
                 switch (operation.ToString())
                 {
                     case "+":
@@ -43,15 +39,22 @@ namespace SimpleCalculator
                     default:
                         return message.BadInput;
                 }
-            } else
+            }
+            else if (user_input == "last")
+            {
+                return message.LastInputDisplay();
+                stack.SetLastInput(user_input);
+            }
+            else if (user_input == "lastq")
+            {
+                return message.LastOutputDisplay();
+                stack.SetLastInput(user_input);
+            }
+            else
             {
                 return message.BadInput;
             }    
         }
-
-
-
-
             //if (regex.IsMatch(user_input))
             //{
             //    return math.Add(firstDigit, secondDigit);
