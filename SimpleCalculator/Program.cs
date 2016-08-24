@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SimpleCalculator;
 
@@ -13,6 +14,7 @@ namespace SimpleCalculator
         {
             StackBuilder stack = new StackBuilder();
             Expression exp = new Expression();
+            MessageRepo message = new MessageRepo();
             bool trigger = true;
             int counter = 0;
             while (trigger == true)
@@ -23,7 +25,8 @@ namespace SimpleCalculator
                 counter += 1;
                 if (input == "exit" | input == "quit")
                 {
-                    Console.WriteLine("End line.");
+                    Console.WriteLine(message.DisplayLogoutMsg());
+                    Thread.Sleep(1500);
                     trigger = false;
                     
                 }
