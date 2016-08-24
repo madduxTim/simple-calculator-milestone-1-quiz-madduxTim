@@ -10,6 +10,7 @@ namespace SimpleCalculator
     {
         public string Modulify(string user_input)
         {
+            MessageRepo message = new MessageRepo();
             int operandIndex = user_input.IndexOf("%");
             bool checking = user_input.EndsWith("%");
             if (operandIndex != 0 && checking == false)
@@ -23,7 +24,7 @@ namespace SimpleCalculator
             }
             else
             {
-                return "Check your last entry. You need two digits between a operand.";
+                return message.BadInput;
             }
         }
     }

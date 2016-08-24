@@ -25,6 +25,7 @@ namespace SimpleCalculator
                 {
                     Console.WriteLine("End line.");
                     trigger = false;
+                    
                 }
                 else if (input == "last")
                 {
