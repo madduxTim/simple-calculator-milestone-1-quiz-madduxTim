@@ -42,13 +42,13 @@ namespace SimpleCalculator
             }
             else if (user_input == "last")
             {
-                return message.LastInputDisplay();
                 stack.SetLastInput(user_input);
+                return message.LastInputDisplay();
             }
             else if (user_input == "lastq")
             {
-                return message.LastOutputDisplay();
                 stack.SetLastInput(user_input);
+                return message.LastOutputDisplay();
             }
             else
             {
