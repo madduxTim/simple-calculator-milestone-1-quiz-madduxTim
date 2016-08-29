@@ -10,40 +10,86 @@ namespace SimpleCalculator
 {
     public class Expression
     {
-        //StackBuilder stack = new StackBuilder(); 
+        StackBuilder stack = new StackBuilder();
+        MessageRepo message = new MessageRepo();
+        string myRegex = @"^(?<FirstDigit>-?\d+)\s*?(?<Operation>[\+\0\*\%])\s*?(?<SecondDigit>-?\d+)\s*?$";
+
         public string ExpressionHandler(string user_input)
         {
-            if (user_input.Contains("+"))
+            Regex regex = new Regex(myRegex);
+            Math math = new Math();
+            Match captures = regex.Match(user_input);
+            if (regex.IsMatch(user_input))
             {
-                Addition add = new Addition();
-                //stack.SetLastOutput(add.Add(user_input)); // ASK WHY AS TO WHY THIS DIDN'T WORK, BUT DID THROW ERROR EITHER
-                //Console.WriteLine("This is the expression handler " + add.Add(user_input)); //this prints as expected however...
-                return add.Add(user_input);
+                int firstDigit = Convert.ToInt32(captures.Groups["FirstDigit"].Value);
+                int secondDigit = Convert.ToInt32(captures.Groups["SecondDigit"].Value);
+                char operation = Convert.ToChar(captures.Groups["Operation"].Value);
+                switch (operation.ToString())
+                {
+                    case "+":
+                        return math.Add(firstDigit, secondDigit);
+                    case "-":
+                        return math.Subtract(firstDigit, secondDigit);
+                    case "*":
+                        return math.Multiply(firstDigit, secondDigit);
+                    case "/":
+                        return math.Divide(firstDigit, secondDigit);
+                    case "%":
+                        return math.Modulify(firstDigit, secondDigit);
+                    default:
+                        return message.BadInput;
+                }
             }
-            else if (user_input.Contains("-"))
+            else if (user_input == "last")
             {
-                Subtraction subtract = new Subtraction();
-                return subtract.Subtract(user_input);        
+                stack.SetLastInput(user_input);
+                return message.LastInputDisplay();
             }
-            else if (user_input.Contains("*"))
+            else if (user_input == "lastq")
             {
-                Multiplication multiply = new Multiplication();
-                return multiply.Multiply(user_input);
-            }
-            else if (user_input.Contains("%"))
-            {
-                Modulus modulify = new Modulus();
-                return modulify.Modulify(user_input);
-            }
-            else if (user_input.Contains("/"))
-            {
-                Division divide = new Division();
-                return divide.Divide(user_input);
+                stack.SetLastInput(user_input);
+                return message.LastOutputDisplay();
             }
             else
             {
-                return "You didn't enter an equation correctly. Try again";
-            }
+                return message.BadInput;
+            }    
         }
+            //if (regex.IsMatch(user_input))
+            //{
+            //    return math.Add(firstDigit, secondDigit);
+            //}
+            //else
+            //{
+            //    return message.BadInput;
+            //}
+
+        //public string ExpressionHandler(string user_input)
+        //{
+        //if (user_input.Contains("+"))
+        //{
+        //    return add.Add(user_input);
+        //}
+        //else if (user_input.Contains("-"))
+        //{
+        //    return subtract.Subtract(user_input);
+        //}
+        //else if (user_input.Contains("*"))
+        //{
+        //    return multiply.Multiply(user_input);
+        //}
+        //else if (user_input.Contains("%"))
+        //{
+        //    return modulify.Modulify(user_input);
+        //}
+        //else if (user_input.Contains("/"))
+        //{
+        //    return divide.Divide(user_input);
+        //}
+        //else
+        //{
+        //    return message.BadInput;
+        //}
+        //    }
     }
 }
