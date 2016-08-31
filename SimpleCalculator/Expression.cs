@@ -27,16 +27,27 @@ namespace SimpleCalculator
                 switch (operation.ToString())
                 {
                     case "+":
+                        stack.pushToMonkey(user_input);
+                        stack.printMonkey();
+                        foreach (string input in stack.monkey)
+                        {
+                            Console.WriteLine(stack.monkey);
+                        }
                         return math.Add(firstDigit, secondDigit);
                     case "-":
+                        stack.SetLastInput(user_input);
                         return math.Subtract(firstDigit, secondDigit);
                     case "*":
+                        stack.SetLastInput(user_input);
                         return math.Multiply(firstDigit, secondDigit);
                     case "/":
+                        stack.SetLastInput(user_input);
                         return math.Divide(firstDigit, secondDigit);
                     case "%":
+                        stack.SetLastInput(user_input);
                         return math.Modulify(firstDigit, secondDigit);
                     default:
+                        stack.SetLastInput(user_input);
                         return message.BadInput;
                 }
             }
@@ -55,41 +66,5 @@ namespace SimpleCalculator
                 return message.BadInput;
             }    
         }
-            //if (regex.IsMatch(user_input))
-            //{
-            //    return math.Add(firstDigit, secondDigit);
-            //}
-            //else
-            //{
-            //    return message.BadInput;
-            //}
-
-        //public string ExpressionHandler(string user_input)
-        //{
-        //if (user_input.Contains("+"))
-        //{
-        //    return add.Add(user_input);
-        //}
-        //else if (user_input.Contains("-"))
-        //{
-        //    return subtract.Subtract(user_input);
-        //}
-        //else if (user_input.Contains("*"))
-        //{
-        //    return multiply.Multiply(user_input);
-        //}
-        //else if (user_input.Contains("%"))
-        //{
-        //    return modulify.Modulify(user_input);
-        //}
-        //else if (user_input.Contains("/"))
-        //{
-        //    return divide.Divide(user_input);
-        //}
-        //else
-        //{
-        //    return message.BadInput;
-        //}
-        //    }
     }
 }

@@ -10,6 +10,22 @@ namespace SimpleCalculator
 {
     public class StackBuilder
     {
+        public Stack<string> monkey = new Stack<string>();
+        public void pushToMonkey(string user_input)
+        {
+            monkey.Push(user_input);
+        }
+
+        public void printMonkey()
+        {
+            foreach (var item in monkey)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        public Stack<string> lastUserOutput = new Stack<string>();
+
+        // Existing working stuff. Or at least I think it's working? 
         public string LastInput = "Nothing asked to be calculated yet.";
         public string LastOutput = "Nothing output yet."; 
         
